@@ -1,0 +1,26 @@
+./elasticsearch-setup-passwords.bat interactive
+warning: ignoring JAVA_HOME=C:\Softwares\openjdk-11.0.2_windows-x64_bin\jdk-11.0.2; using bundled JDK
+******************************************************************************
+Note: The 'elasticsearch-setup-passwords' tool has been deprecated. This       command will be removed in a future release.
+******************************************************************************
+
+Initiating the setup of passwords for reserved users elastic,apm_system,kibana,kibana_system,logstash_system,beats_system,remote_monitoring_user.
+You will be prompted to enter passwords as the process progresses.
+Please confirm that you would like to continue [y/N]y
+
+
+
+./elasticsearch-create-enrollment-token.bat --scope kibana
+warning: ignoring JAVA_HOME=C:\Softwares\openjdk-11.0.2_windows-x64_bin\jdk-11.0.2; using bundled JDK
+eyJ2ZXIiOiI4LjUuMyIsImFkciI6WyIxNzIuMTguNDguMTo5MjAwIl0sImZnciI6ImM4NzYyNzlmOGQ0ZDM1ZjBmMjFhMWQ5YWQyYWYxN2EyZGIzMTJkNWY3NjYwNTA3ZDhiNzlkZWYzMjAyM2E5ZmUiLCJrZXkiOiI3dUxxbjRjQlgxMGsxSm41Vms5dDp6c3NQZVVwTlFoQzNRdUtqSzRCUy1nIn0=
+
+elastic
+Admin@123
+
+
+./kibana.bat
+./elasticsearch.bat
+
+ ./logstash.bat -f ./bin/logstash.conf
+ 
+ /filebeat -e -c filebeat.yml
